@@ -16,21 +16,23 @@ The [releases](https://github.com/mriphysics/optimal-control-EPG/releases) page 
 
 ### 1. Introduction
 
-This code runs on Matlab with the optimization toolbox (necessary for the function fmincon.m). The EPG simulator is implemented in C++ (Linux and Mac users) and in Matlab (all operative systems). The user can choose which version. The C++ implementation is faster but it requires the open-source linear algebra library ARMADILLO version 5.100 or higher. For more info and download see: http://arma.sourceforge.net
-For information about the compilation of the c++ code see section 2.
+This code runs on Matlab with the optimization toolbox (necessary for the function fmincon.m). The EPG simulator is implemented in C++ and in Matlab. The user can choose which version. The C++ implementation is faster and pre-compiled executables for Linux/Mac and Windows are provided. 
+<br>In case you need to compile the C++ files yourself, you will need the open-source linear algebra library ARMADILLO version 5.100 or higher. For more info and download see: http://arma.sourceforge.net . For more information about the compilation of the c++ code see section 2.
+<br>If you have troubles compiling or running obj_EPG13_cpp.m you can still choose for the analogous matlab version obj_EPG13.m (slower). Just replace "obj_EPG13_cpp.m" by "obj_EPG13.m" in the "OPTIMIZATION" cell of the MAIN.m file
 
 <a name="compile"></a>
 
 ###2. COMPILE C++ code (optional)
 
+#### Linux and Mac
 The EPG simulator is implemented in both Matlab as well as in c++. The user can choose which version by indicating it in the info file (see below). To improve performance use the c++ version: obj_EPG13_cpp.
 To compile the C++ file, download ARMADILLO and save in a directory of your choice (indicated here as ARMADILLO). Then type in matlab:
 
 ```system('g++ obj_EPG13.cpp -o obj_EPG13 -O2 -I DIRECTORY/armadillo-5.100.1/include -lblas -llapack');```
 
-If you have troubles compiling or running obj_EPG13_cpp.m you can choose for the analogous matlab version obj_EPG13.m (slower). Just replace "obj_EPG13_cpp.m" by "obj_EPG13.m" in the "OPTIMIZATION" cell of the MAIN.m file
+#### Windows
 
-NOTE: with some extra effort it is possible to compile obj_EPG13.cpp on Windows and modify the line
+With some extra effort it is possible to compile obj_EPG13.cpp on Windows and modify the line
 
 `system('./obj_EPG13');`
 
